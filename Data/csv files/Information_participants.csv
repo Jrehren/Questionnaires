@@ -1,0 +1,82 @@
+;;;;;A1.;A2.;;A3.;A4.;;A4.;B1.;B1.;B2.;B3.;B3.;B3.;B5.;B6.;B6.;C1.;C1.;D1.
+Id;Date_interview;Interviewer_name;Number_participant;Fisher_name;Fishing_village;Sex;Age;Age_class;Start_fishing_month;Start_fishing_year;Years_fishing;Main_gear;Second_gear;Equipment_ownership;Crew;Crew_role;Number_fisher;Years_fishing_Chwaka;Fishing_yearround;Fishing_break;Individual_catch;Fisher_number;Tobe_informed
+OH0213U1;13.02.2021;Omar Haji Omar;1;Amour Suleiman Mkombe;Uroa;M;;60.5;none ;1971;50;Handline;Spear;Gear;yes;captain;8;50;yes;none;yes;8;yes
+OH0213U2;13.02.2021;Omar Haji Omar;2;Hassan Makame Kipenda;Uroa;M;;50.5;none ;2001;20;Handline;FootFisher;Cooperative;yes;fishing and taking off the water;5;20;yes;friday;no;5;yes
+OH0213U3;13.02.2021;Omar Haji Omar;3;Suleiman Hassan Makame;Uroa;M;;80.5;none ;1971;50;Longline;Dragnet+Handline;Cooperative;yes;net repairing, fishing;12;50;yes;none;no;12;yes
+OH0213U4;13.02.2021;Omar Haji Omar;4;Abubakar Abdalla Silima;Uroa;M;;21.5;none ;2004;17;Spear;Spear;Gear;yes;fishing;7;17;yes;none;yes;8;yes
+OH0213U5;13.02.2021;Omar Haji Omar;5;Hamza Amir;Uroa;M;;70.5;none ;1976;45;Spear;Handline;Gear;yes;chief advisor;8;45;yes;none;yes;8;yes
+OH0214C6;14.02.2021;Omar Haji Omar;6;Khatib Juma Mohd;Chwaka;M;;21.5;none ;2014;7;Dragnet;Handline;Boat;yes;assistant captain;8;7;yes;friday;no;8;yes
+OH0214C7;14.02.2021;Omar Haji Omar;7;Juma Abdallah Abdallah;Chwaka;M;;30.5;none ;2001;20;Longline;none;Gear;no;none;1;20;yes;friday;yes;1;yes
+OH0214C8;14.02.2021;Omar Haji Omar;8;Salim Kassim;Chwaka;M;;30.5;none ;2000;21;Dragnet;Trap+Handline;Gear;yes;assistant captain;14;21;yes;none;no;14;yes
+OH0214C9;14.02.2021;Omar Haji Omar;9;Vuai Ali Vuai;Chwaka;M;;50.5;none ;1995;26;Trap;none;Gear;no;none;1;26;yes;none;yes;1;yes
+OH0214C10;14.02.2021;Omar Haji Omar;10;Mkadam Ali Mkadam;Chwaka;M;;30.5;none ;2014;7;Handline;Trap;Gear;no;none;1;7;yes;friday;yes;1;yes
+OH0220M11;20.02.2020;Omar Haji Omar;11;Hamad Issa;Marumbi;M;;50.5;none ;2011;10;Floatnet;Handline;Cooperative;yes;assistant captain;8;10;yes;friday;no;3;yes
+OH0220M12;20.02.2020;Omar Haji Omar;12;Khatib Kasu Abass;Marumbi;M;;50.5;none ;1991;30;Trap;Gillnet;Gear;yes;captain;5;30;yes;Friday/storms;no;4;yes
+OH0220M13;20.02.2020;Omar Haji Omar;13;Saleh Mwezi Maalim;Marumbi;M;;30.5;none ;2011;10;Trap;Floatnet;Boat;yes;captain;12;10;yes;none;no;2;yes
+OH0220M14;20.02.2020;Omar Haji Omar;14;Mohd Gilasi Mahmood;Marumbi;M;;30.5;none ;2001;20;Handline;Trap;Gear;no;captain;7;20;yes;none;yes;1;yes
+OH0220M15;20.02.2020;Omar Haji Omar;15;Said Hassan Makame;Marumbi;M;;50.5;none ;1991;30;Spear;none;Gear;yes;captain;8;30;yes;none;yes;4;yes
+OH0221P16;21.02.2020;Omar Haji Omar;16;Ali Uzi;Pongwe;M;;60.5;none ;1976;45;Spear;FootFisher;Gear;no;none;8;45;yes;storms;yes;1;yes
+OH0221P17;21.02.2020;Omar Haji Omar;17;Ali Vuai Faki;Pongwe;M;;40.5;none ;1993;28;Dragnet;Gillnet;Gear;yes;captain;8;28;yes;friday;no;12;yes
+OH0221P18;21.02.2020;Omar Haji Omar;18;Khamis Keis Malik;Pongwe;M;;30.5;none ;2005;16;Floatnet;Dragnet ;Boat;yes;captain;12;16;yes;none;no;8;yes
+OH0221P19;21.02.2020;Omar Haji Omar;19;Makame Ali Vuai;Pongwe;M;;60.5;none ;1971;50;Handline;none;Gear;yes;captain;8;50;yes;none;no;3;yes
+OH0221P20;21.02.2020;Omar Haji Omar;20;Khamis Haji Chum;Pongwe;M;;60.5;none ;1984;37;Handline;Trap;Gear;yes;captain;none;37;yes;none;no;2;yes
+NS0213U1;13.02.2021;Nuru Said Salum;1;Ali Makame Duchi;Uroa;M;;21.5;none ;2014;7;Gillnet;none;Boat;yes;fishing;8;7;yes;none;no;8;yes
+NS0213U2;13.02.2021;Nuru Said Salum;2;Haji Haji Haji;Uroa;M;;60.5;none ;1970;51;Dragnet;Gillnet;Cooperative;yes;fishing;12;50;yes;none;no;12;yes
+NS0213U3;13.02.2021;Nuru Said Salum;3;Ali Makame Kipanga;Uroa;M;;30.5;none ;2006;15;Handline;Longline;Gear;yes;fishing;8;15;yes;none;no;8;yes
+NS0213U4;13.02.2021;Nuru Said Salum;4;Fahdi Yahya Mussa;Uroa;M;;21.5;none ;2015;6;Handline;Spear;Gear;no;fishing;1;6;yes;friday;yes;1;yes
+NS0213U5;13.02.2021;Nuru Said Salum;5;Juma Mgeni Ali;Uroa;M;;21.5;none ;2015;6;Handline;none;Boat;yes;fishing;4;6;yes;none;no;4;yes
+NS0214C6;14.02.2021;Nuru Said Salum;6;Khamis Makame;Chwaka;M;;40.5;none ;2011;10;Gillnet;Dragnet ;Boat;yes;fishing;3;10;yes;none;no;3;yes
+NS0214C7;14.02.2021;Nuru Said Salum;7;Juma Haji Ramadhan;Chwaka;M;;21.5;none ;2011;10;FootFisher;Dragnet;Boat;no;fishing;1;10;yes;none;yes;1;yes
+NS0214C8;14.02.2021;Nuru Said Salum;8;Abdi Mwadini;Chwaka;M;;21.5;none ;2017;4;Handline;none;Gear;no;fishing;1;4;yes;none;yes;1;yes
+NS0214C9;14.02.2021;Nuru Said Salum;9;Mohd Masoud;Chwaka;M;;40.5;none ;2001;20;Dragnet;none;Cooperative;yes;fishing;10;20;yes;none;no;10;yes
+NS0214C10;14.02.2021;Nuru Said Salum;10;Hassan Vuai Mwadini;Chwaka;M;;21.5;none ;2018;3;Spear;none;Gear;yes;fishing;6;3;yes;none;no;6;yes
+NS0220M11;20.02.2021;Nuru Said Salum;11;Maulid Ali Hassan;Marumbi;M;;30.5;none ;2009;12;Spear;none;Gear;no;fishing;1;12;yes;none;yes;1;yes
+NS0220M12;20.02.2021;Nuru Said Salum;12;Ali Mussa Vuai;Marumbi;M;;50.5;none ;1996;25;Handline;none;Gear;no;fishing;1;25;yes;none;yes;1;yes
+NS0220M13;20.02.2021;Nuru Said Salum;13;Omar Issa Haji;Marumbi;M;;30.5;none ;2011;10;Gillnet;Trap;NA;yes;fishing;2;10;yes;none;no;2;yes
+NS0220M14;20.02.2021;Nuru Said Salum;14;Hassan Ali Hassan;Marumbi;M;;40.5;none ;2001;20;Trap;Handline, Gillnet;Gear;yes;fishing;2;10;yes;none;no;2;yes
+NS0220M15;20.02.2021;Nuru Said Salum;15;Ibrahim Ali Mrisho;Marumbi;M;;30.5;none ;2001;20;Trap;Gillnet;Boat;yes;captain;3;10;yes;none;no;3;yes
+NS0221P16;21.02.2021;Nuru Said Salum;16;Mussa Ame Juma;Pongwe;M;;40.5;none ;1991;30;Spear;Handline;Gear;no;fishing;1;30;yes;none;yes;1;yes
+NS0221P17;21.02.2021;Nuru Said Salum;17;Vuai Faki;Pongwe;M;;60.5;none ;1972;49;Handline;Trap, Gillnet;Gear;yes;fishing;4;NA;yes;none;no;4;yes
+NS0221P18;21.02.2021;Nuru Said Salum;18;Juma Abdallah;Pongwe;M;;50.5;none ;1991;30;Longline;Handline;Gear;yes;fishing;4;25;yes;none;no;4;yes
+NS0221P19;21.02.2021;Nuru Said Salum;19;Mussa Ali Foum;Pongwe;M;;50.5;none ;1991;30;Handline;Trap;Gear;no;fishing;1;30;yes;none;yes;1;yes
+NS0221P20;21.02.2021;Nuru Said Salum;20;Haji Hamad Dadi;Pongwe;M;;70.5;none ;1971;50;Handline;none;Gear;no;fishing;1;50;yes;none;yes;1;yes
+HK0213U1;13.02.2021;Hamadi Khatib;1;Kassim Simai Iddi;Uroa;M;;50.5;none;1996;25;Longline;Handline;Gear;yes;dissemination of catch;2;;yes;none;NA;2;yes
+HK0213U2;13.02.2021;Hamadi Khatib;2;Mtumwa pandu;Uroa;M;;30.5;none;2001;20;Handline;none;Equipment;yes;dissemination of catch;4;;yes;none;NA;4;yes
+HK0213U3;13.02.2021;Hamadi Khatib;3;Mbarouk  Abdalla ali;Uroa;M;;30.5;none;1986;35;Gillnet/Longline;none;Equipment;no;all activities;1;;yes;none;NA;1;yes
+HK0213U4;13.02.2021;Hamadi Khatib;4;Hssan Suleiman Mzee;Uroa;M;;40.5;8;2004;17;Gillnet;none;Cooperative;yes;assistant captain;7;;yes;All Friday and some windy days (South east monsoon);NA;7;yes
+HK0213U5;13.02.2021;Hamadi Khatib;5;Ramadhan Salim  mshenga;Uroa;M;;20.5;4;2010;11;Spear;none;Gear;yes;individual task;7;11;yes;20 days out of 30 days in a months;NA;7;yes
+HK0214C6;14.02.2021;Hamadi Khatib;6;Hassan  Mwalim Suleiman;Chwaka;M;;20.5;7;2010;11;Spear;none;Equipment;yes;captain;4;11;yes;8 days  out of 30 days has to break for  other task.;NA;4;yes
+HK0214C7;14.02.2021;Hamadi Khatib;7;Ilyasa Khamis  Mtumwa;Chwaka;M;;30.5;1;2006;15;Handline;Trap;Equipment;yes;captain;3;15;yes;Friday and strong wind in South east monsoon;NA;3;yes
+HK0214C8;14.02.2021;Hamadi Khatib;8;Haji Sheha Salim;Chwaka;M;;50.5;9;1991;30;Trap;Dragnet;Gear;yes;assistant captain;2;30;yes;Only Fridays with expection furnerals;NA;2;yes
+HK0214C9;14.02.2021;Hamadi Khatib;9; Ali salim nassor;Chwaka;M;;30.5;8;2006;15;Dragnet;none;none;yes;crew;15;15;yes;none;NA;15;yes
+HK0214C10;14.02.2021;Hamadi Khatib;10;Haji Mlenge Makame;Chwaka;M;;30.5;5;1998;23;Trap;none;Equipment;no;captain;1;23;yes;friday;NA;1;yes
+HK0220M11;20.02.2021;Hamadi Khatib;11;Haji Abdalla Abdalla;Marumbi;M;;30.5;7;2001;20;Floatnet;Handline;Gear;yes;assistant captain;3;20;yes;none;NA;3;yes
+HK0220M12;20.02.2021;Hamadi Khatib;12;Abdull Jamal Talib;Marumbi;M;;30.5;11;2006;15;Gillnet;Trap;Equipment;yes;captain;3;15;yes;none;NA;3;yes
+HK0220M13;20.02.2021;Hamadi Khatib;13;Abdalla Mohd Salim;Marumbi;M;;30.5;2;2006;15;Gillnet;Handline;Equipment;yes;assistant captain;3;15;yes;friday;NA;3;yes
+HK0220M14;20.02.2021;Hamadi Khatib;14;Juma Vuai Rajab;Marumbi;M;;30.5;3;2006;15;Dragnet;Handline;Gear;yes;dissemination of catch;3;15;yes;saturday;NA;3;yes
+HK0220M15;20.02.2021;Hamadi Khatib;15;Talib maalim Hassan;Marumbi;M;;50.5;4;1981;40;Trap;none;Equipment;yes;captain;2;40;yes;sunday;NA;2;yes
+HK0221P16;21.02.2021;Hamadi Khatib;16;Abdulrahman Abdalla Abdalla;Pongwe;M;;50.5;5;1991;30;Trap;Handline;Equipment;yes;captain;3;30;yes;monday;NA;3;yes
+HK0221P17;21.02.2021;Hamadi Khatib;17;Khamis Mtumwa Jaku;Pongwe;M;;50.5;8;1981;40;Handline;Trap;Equipment;yes;captain;3;40;yes;tuesday;NA;3;yes
+HK0221P18;21.02.2021;Hamadi Khatib;18;Issa Ame Muya;Pongwe;M;;50.5;11;1986;35;Handline;none;Equipment;no;captain;1;35;yes;wednesday;NA;1;yes
+HK0221P19;21.02.2021;Hamadi Khatib;19;Haji Iddi Mkangara;Pongwe;M;;50.5;12;1991;30;Handline;Trap;Equipment;no;captain;1;30;yes;thursday;NA;1;yes
+HK0221P20;21.02.2021;Hamadi Khatib;20;Juma Vuai Faki;Pongwe;M;;50.5;8;1996;25;Spear;Dragnet;Gear;yes;assistant captain;7;25;yes;friday;NA;7;yes
+NJ0213U1;13.02.2021;Narriman Jiddawi;1;Ali Fandu;Uroa;M;35;30.5;none;2009;12;Spear;Handline;Gear;no;fishing;1;12;yes;;yes;1;yes
+NJ0213U2;13.02.2021;Narriman Jiddawi;2;Awal Juma;Uroa;M;80;80.5;none;1961;60;Trap;Spear;Gear;no;fishing;1;60;yes;friday;yes;1;yes
+NJ0213U3;13.02.2021;Narriman Jiddawi;3;Ali Hamisi;Uroa;M;35;30.5;none;2006;15;Handline;none;Gear;no;fishing;1;15;yes;;no;1;yes
+NJ0213U4;13.02.2021;Narriman Jiddawi;4;Maryam Ali;Uroa;F;25;21.5;none;2011;10;FootFisher;none;Gear;no;collection;1;10;yes;friday;yes;1;yes
+NJ0213U5;13.02.2021;Narriman Jiddawi;5;Faki Haji;Uroa;M;50;50.5;none;1986;35;Spear;Handline;Gear;no;fishing;1;35;yes;friday;yes;1;yes
+NJ0214C6;14.02.2021;Narriman Jiddawi;6;Utesi Sadik;Chwaka;M;45;40.5;none;2006;15;FootFisher;none;Gear;no;collection;1;15;yes;friday;yes;1;yes
+NJ0214C7;14.02.2021;Narriman Jiddawi;7;Utesi Ali Khamis;Chwaka;M;45;40.5;none;2016;5;FootFisher;none;Gear;no;collection;1;5;yes;friday;yes;1;yes
+NJ0214C8;14.02.2021;Narriman Jiddawi;8;Khamis Ramadhan;Chwaka;M;45;40.5;none;2006;15;Spear;none;Gear;no;collection;1;15;yes;friday;yes;1;yes
+NJ0214C9;14.02.2021;Narriman Jiddawi;9;Fadhil Ali;Chwaka;M;45;40.5;none;2001;20;Longline;none;Gear;yes;captain;3;20;yes;friday;no;3;yes
+NJ0214C10;14.02.2021;Narriman Jiddawi;10;Salum Masoud;Chwaka;M;35;30.5;none;2006;15;Gillnet;none;rich man;yes;fishing;3;15;yes;friday;no;3;yes
+NJ0220M11;20.02.2021;Narriman Jiddawi;11;Abdulrahman Jumai;Marumbi;M;25;21.5;none;2015;6;Longline;Floatingline;Equipment;yes;fishing;3;6;yes;friday;no;3;yes
+NJ0220M12;20.02.2021;Narriman Jiddawi;12;Hamid Maalim;Marumbi;M;45;40.5;none;1991;30;Longline;Floatingline;Equipment;yes;fishing;3;30;yes;friday;no;3;yes
+NJ0220M13;20.02.2021;Narriman Jiddawi;13;Kamis Mtumwa;Marumbi;M;35;30.5;none;2010;11;Trap;Floatingline;Equipment;yes;fishing;2;11;yes;friday;no;2;yes
+NJ0220M14;20.02.2021;Narriman Jiddawi;14;Ali muhammad;Marumbi;M;25;21.5;none;2011;10;Floatline;Trap;Equipment;yes;fishing;2;10;yes;friday;no;2;yes
+NJ0220M15;20.02.2021;Narriman Jiddawi;15;Riziki Mzee;Marumbi;F;35;30.5;none;2011;10;stick/diving;none;Equipment;no;fishing;1;10;yes;friday;no;1;yes
+NJ0221P16;21.02.2021;Narriman Jiddawi;16;Ramadhan Abdul;Pongwe;M;45;40.5;none;1996;25;Trap;none;Equipment;yes;fishing;2;25;yes;friday;no;2;yes
+NJ0221P17;21.02.2021;Narriman Jiddawi;17;Muhammad Shaaban;Pongwe;M;80;80.5;none;1971;50;Trap;none;Equipment;no;fishing;1;50;yes;saturday;no;1;yes
+NJ0221P18;21.02.2021;Narriman Jiddawi;18;Jeilani Kadim;Pongwe;M;45;40.5;none;1991;30;Handline;none;Equipment;no;fishing;1;30;yes;sunday;no;1;yes
+NJ0221P19;21.02.2021;Narriman Jiddawi;19;Juma Ame;Pongwe;M;45;40.5;none;1991;30;spear/diving;none;Equipment;no;fishing;1;30;yes;monday;no;1;yes
+NJ0221P20;21.02.2021;Narriman Jiddawi;20;Ali Faki;Pongwe;M;50;50.5;none;1991;30;Fence;Handline;Equipment;no;fishing;1;30;yes;tuesday;no;1;yes

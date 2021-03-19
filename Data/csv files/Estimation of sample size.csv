@@ -1,0 +1,33 @@
+Kiswahili;Latin;Family;Category;Species;Dragnet;Floatnet;Trap;Spear;Handline;Gillnet;Longline;Fence;FootFisher;Total
+Tasi uzi;Siganus_sutor;Siganidae;Siganus_sutor;Siganus_sutor;0.36;0;0.5;0.08;0.06;0;0;0;0;1
+Pono bodwe;Leptoscarus_vaigiensis;Scaridae;Leptoscarus_vaigiensis;Leptoscarus_vaigiensis;0.35;0;0.44;0.21;0;0;0;0;0;1
+Changu njana;Lethrinus_lentjan;Lethrinidae;Lethrinus_lentjan;Lethrinus_lentjan;0.23;0;0.4;0.1;0.25;0;0.01;0;0;1
+Changu chore;Lethrinus_borbonicus;Lethrinidae;Lethrinus_borbonicus;Lethrinus_borbonicus;0.16;0;0.1;0.03;0.7;0;0;0;0;1
+Changu ginge kawaida;Lutjanus_fulviflamma;Lutjanidae;Lutjanus_fulviflamma;Lutjanus_fulviflamma;0.41;0;0.19;0.02;0.38;0;0;0;0;1
+Pono kawaida;Scarus_ghobban;Scaridae;Scarus_ghobban;Scarus_ghobban;0.08;0;0.54;0.28;0.1;0;0;0;0;1
+Domo panda;Belonidae;Belonidae;Pelagics;Belonidae;0.02;0.4;0.02;0;0.04;0;0;0.53;0;1
+Mkonje;Chirocentrus spp.;Chirocentridae;Pelagics;Chirocentridae;0.45;0.27;0.04;0;0;0;0;0.24;0;1
+Mshe;Sphyraenidae;Sphyraenidae;Pelagics;Sphyraenidae;0.51;0.11;0.34;0;0.02;0;0.02;0;0;1
+Changu gamu;Lethrinus harak;Lethrinidae;Fish/Invertebrates;Lethrinus_harak;0.69;0;0.17;0.02;0.04;0;0;0.04;0.04;1
+Changu sororo;Lethrinus variegatus;Lethrinidae;Fish/Invertebrates;Lethrinus_variegatus;0.02;0;0.05;0.03;0.57;0;0.33;0;0;1
+Changu tuku;Lethrinus mahsena;Lethrinidae;Fish/Invertebrates;Lethrinus_mahsena;0.49;0;0.32;0.03;0.17;0;0;0;0;1
+Chewa kawaida;Serranidae;Serranidae;Fish/Invertebrates;Serranidae;0;0;0.41;0.01;0.07;0.04;0.45;0;0.01;1
+Kikoa;Plecthorinchus gibbus;Haemulidae;Fish/Invertebrates;Plectorhinchus_gibbus;0.05;0;0.16;0.03;0.01;0.45;0.23;0;0.06;1
+Mbiu;Rhinobatidae;Ray;Fish/Invertebrates;Rhinobatidae;0.02;0;0.02;0.06;0.01;0.71;0.14;0.03;0.01;1
+Mkundaji;Mullidae;Mullidae;Fish/Invertebrates;Mullidae;0.15;0;0.47;0.03;0.06;0;0.24;0;0.05;1
+Mkunga;Anguilliformes;Anguiliformes;Fish/Invertebrates;Anguilliformes;0;0;0.18;0.69;0.05;0;0;0;0.08;1
+Pono kasiki;Cheilinus trilobatus;Labridae;Fish/Invertebrates;Cheilinus_trilobatus;0.2;0;0.3;0.08;0.08;0;0;0;0.34;1
+Kikande;Ballistidae;Ballistidae;Omnivore;Balistidae;0.04;0;0.1;0.16;0.32;0;0;0;0.38;1
+Mkizi;Mugillidae;Mugillidae;Omnivore;Mugilidae;0.13;0;0.01;0;0;0;0;0.86;0;1
+Vibamba;Monodactylus argenteus;Monodactylidae;Omnivore;Monodactylus_argentus;0.26;0;0;0;0.74;0;0;0;0;1
+Kangaja;Acanthurus spp./ Ctenochaetus spp.;Acanthuridae;Herbivore;Acanthurus_spp;0.37;0;0.34;0.17;0.11;0;0;0;0;1
+Pono cha mumbu;Hipposcarus harid;Scaridae;Herbivore;Hipposcarus_harid;0.15;0;0.74;0.11;0;0;0;0;0;1
+Pono fis;Calatomus carolinus;Scaridae;Herbivore;Calatomus_carolinus;0.1;0;0.65;0.06;0;0.04;0;0;0.15;1
+Tati uzia;Siganus stellatus;Siganidae;Zooplankter;Siganus_stellatus;0.31;0;0.66;0.03;0;0;0;0;0;1
+Mbono;Caesionidae;Caesionidae;Zooplankter;Caesionidae;0.99;0;0;0.01;0;0;0;0;0;1
+Dagaa;Sardinella spp.;Clupeidae;Zooplankter;Sardinella_spp;0.28;0.26;0.45;0;0;0;0;0;0;1
+Kaa;Crabs;Crabs;Crabs;Crabs_Lobsters;0;0;0.35;0.35;0.15;0;0;0;0.14;1
+Kamba;Lobster;Lobster;Lobsters;Crabs_Lobsters;0.02;0;0.02;0.05;0.03;0.74;0;0;0.14;1
+Pweza;Octopus cyanea;Octopodidae;Octopus;Octopus;0.02;0;0.02;0.38;0.06;0;0;0;0.53;1
+Bora gam ;Shell;Shell;Shells;Snails;0;0;0.01;0.11;0.01;0.04;0.45;0;0.38;1
+Ngisi;Squid;Loliginidae;Squid;Squids;0.1;0.06;0.04;0.06;0.52;0;0.13;0.04;0.06;1

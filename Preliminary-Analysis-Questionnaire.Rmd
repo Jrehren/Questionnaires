@@ -1,0 +1,426 @@
+---
+title: "Preliminary-Analysis-Questionnaires"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(tidyverse)
+library(ggplot2)
+library(gridExtra)
+library(parallel)
+library(stringr)
+```
+
+# Distribution of the samples
+
+Let us first look at the total number of Participants (P), percentage of village, fishing gear, and fishing experience in the data set.
+
+```{r load data, echo=F}
+
+# This is the information about the demographics and fishing behaviour of each 
+# participant
+pDat <- read.table("Data/csv files/Information_participants.csv", sep=";", 
+                   header=T, skip = 1, na.strings=c(""," ","NA"))
+
+# This file contains information on which of the listed species/groups is caught
+# often, occassionally and not at all
+spL <- read.table("Data/csv files/Current target species.csv", sep=";", header = T)
+
+# This file is the current and historical total catches of each participant
+totC <- read.table("Data/csv files/Total current and historical catch.csv", 
+                   sep=";", header=T)
+
+spC <- read.table("Data/csv files/Current and historical catch per species.csv", 
+                  sep=";", header=T)
+
+# Now let us load the original data used to set the sample size 
+
+sampEst <- read.table("Data/csv files/Estimation of sample size.csv", 
+                      sep=";", header=T)
+
+
+```
+
+Total number of P:
+
+`r length(pDat$Years_fishing)`
+
+
+We have sampled four fishing villages with the same frequency:
+
+```{r fishing village, echo=F}
+
+ggplot(pDat, aes(x=Fishing_village)) +
+  geom_bar()
+
+```
+
+This is the pecentage of each gear represented in the data set:
+
+```{r fishing gear, echo=F}
+
+ggplot(pDat, aes(x=Main_gear)) +
+  geom_bar()+
+  coord_flip()
+
+```
+
+This is not evenly distributed. We actually wanted such a percentage:
+
+```{r ideal geardistribution, echo=F}
+
+gear <- c("Handline", "Net", "Spear", "Trap", "Gillnet", "Longline", "FootFisher", "Fence", "Floatnet")
+num <- c(8, 10, 8, 10, 5, 5, 10, 1, 5)
+idealSamp <- data.frame(gear=gear, number=num)
+
+ggplot(idealSamp) +
+  geom_bar(aes(x=gear, y=number), stat = "identity")+
+  coord_flip()
+
+```
+
+Most important let us look at the fishing experience in years of the fishers. 
+
+```{r fisher experience, echo=F}
+
+ggplot(pDat, aes(x=Years_fishing)) + 
+  geom_histogram(binwidth = 5)
+
+```
+
+Many P have less than 20 years experience. Originally, I said, we want to have Ps that have an experience of 20 or more years. Because the model year is 2014, I decided to take out all Ps with less than 15 years of fishing. Note that asking the fisher about their catch 10, 20, 30, etc. years ago did not work according to the interviewers. Instead they asked the Ps about the current year 2021 (Sasa), the year when they started (Aliopanza) and the time in between (Kati kati). In the following I only use the starting year and the current year. 
+
+# Analysis steps
+
+The following will depict how I treat the data and finally calculate a C2021/Cstarting ratio for each species and each participant:
+
+## STEP 1: Extract expert fishers
+
+As said, we only look at those fisher with an experience of more than 15 years.
+
+```{r fisher experts, echo=F}
+
+pDatExp <- subset(pDat, pDat$Years_fishing>=15)
+idExp <- pDatExp$Id
+
+spCExp <- subset(spC, spC$Id %in% idExp)
+
+totCExp <- subset(totC, totC$Id %in% idExp)
+
+```
+
+This reduces the number of 80 Ps to `r length(unique(pDatExp$Id))`. 
+
+```{r experts plot, echo=F}
+
+ggplot(pDatExp, aes(x=Years_fishing)) + 
+  geom_histogram(binwidth = 5)
+
+```
+
+
+## STEP 2: Checking whether the fisher always fish in Chwaka village
+ 
+```{r always Chwaka}
+
+t <- table(totCExp$Chwaka)
+
+```
+
+So no need for treatment
+
+## STEP 3: Check if the fishing hours change over time
+
+We check which of the fisher increased or decreased their fishing effort. Surprisingly, there are only a few Ps:
+
+
+```{r fishing hours, echo=F}
+
+# Which fisher changed fishing effort over time?
+totCExpTimeL <- split(totCExp, totCExp$Time) # splitting the df by time for better
+                                             # handling
+
+# changes between Sasa (2021) and Aliopanza (When fisher started fishing)
+notEqual <- totCExpTimeL$Aliopanza[which(totCExpTimeL$Aliopanza$Duration_fishing_trip!=totCExpTimeL$Sasa$Duration_fishing_trip),]
+notEqualId <- notEqual$Id # id's
+
+# Now we calculate a ratio for each of these fishers 
+totCExpNotequal <- subset(totCExp, totCExp$Id %in% notEqualId & 
+                            totCExp$Time!="Kati_kati")
+totCExpNotequal[,c(1:4,7)]
+
+```
+
+Only 6 of the 58 fisher changed the number of hours spent fishing. Note that we don't look at the days spent fishing as we ask the fisher for their catch per fishing day. 
+
+I now simply calculate the ratio between the hours spent 2021 (Sasa) and when the fisher started (Aliopanza) and add it to the data frame so that we can adjust the catch per species from 2021 by this ratio.  
+
+```{r fishhours treatment, echo=F}
+
+totCExpNotequalL <- split(totCExpNotequal, totCExpNotequal$Time)
+
+# Here, we use the ratio between fishing effort in 2021 (Sasa) and
+# when the fisher started (aliopanza)
+
+cAdjust <- as.numeric(totCExpNotequalL$Sasa$Duration_fishing_trip)/
+  as.numeric(totCExpNotequalL$Aliopanza$Duration_fishing_trip)
+
+# We add the id's again to match with the df in question later on
+
+dfAdjust <- data.frame(Id=notEqualId, Effort_change=cAdjust) 
+
+# Now we add another column for effort change in our df of interest
+
+spCExp$Effort_change <- 1
+# now we adjust the ones with the change in effort:
+
+spCExp$Effort_change <- dfAdjust$Effort_change[match(spCExp$Id,dfAdjust$Id)]
+unique(spCExp$Effort_change)
+
+spCExp$Effort_change[is.na(spCExp$Effort_change)] <- 1
+
+spCExp$Effort_change[spCExp$Time=="Aliopanza"] <- 1
+spCExp$Effort_change[spCExp$Time=="Kati_kati"] <- 1
+
+```
+
+## STEP 4: Check if the fisher reports on individual catch or on collective catch.
+
+Another important point to consider when calculating the ratio between the historical and the current catch is that not all fisher fish alone. Some do it in a crew/company and thus might not be able to report on their personal catch. 
+
+Note that this would only affect our estimate if we first calculate the catch per fisher for each species, then calculate the median and then use the median to calculate a ratio. For the moment, I calculate a ratio between current and historical catch for each fisher and species and only later calculate the median. 
+
+However, we might change this procedure and so I already divide the catch per species by the number of fisher. 
+
+Also note that it is likely that the number of fisher has changed over time but unfortunately we don't ask this. :-(
+
+
+```{r number fisher, echo=F}
+
+dfKladde <- pDatExp[,c(1,22,23)]
+dfKladde$Number_fisher <- 1
+
+ind <- which(dfKladde$Individual_catch =="no" & !(is.na(dfKladde$Individual_catch)))
+
+dfKladde$Number_fisher[ind] <- dfKladde$Fisher_number[ind]
+
+
+dfKladde <- dfKladde[,c(1,3,4)]
+
+# and now we add this to our df of interest
+
+spCExp$Number_fisher <- 1
+
+test <- dfKladde[,c("Id", "Number_fisher")]
+spCExp$Number_fisher <- test$Number_fisher[match(spCExp$Id,test$Id)]
+
+
+```
+
+## STEP 5: Check if the gear has changed between 2021 and the starting year.
+ 
+I checked if the gear has changed for any P over time. Which is not the case.
+
+```{r change gears, echo=F}
+
+# spCExpL <- split(spCExp, spCExp$Time)
+# 
+# indg <- which(spCExpL$Aliopanza$Gear!=spCExpL$Sasa$Gear)
+# 
+# idds <- spCExpL$Aliopanza[indg,]$Id
+# subset(spCExp, spCExp$Id %in% idds)
+```
+
+The interviewer Nuru forgot to note down the gear for all periods. I will ask her. Other than this, all Ps fish with the same year in 2021 and when they started. 
+
+## STEP 6: Check if the fisher always fished in Chwaka.
+
+We check if the fisherfished outside of Chwaka during a period of his life.
+
+```{r fishing in Chwaka, echo=F}
+
+ind3 <- which(pDatExp$Years_fishing!=pDatExp$Years_fishing_Chwaka)
+
+pDatExp[c(ind3),c(1,3,12,19)]
+
+```
+
+Seems as if there are only 3 Ps that did not fish the entire time in Chwaka. I will cross check if the interviewer. 
+
+## STEP 7: Remove the year in-between (Kati_kati)
+
+I decided to only look at the starting and current year, because this is what we need to calculate: the ratio between B/Bunfished. Another option, however, could be to actually try making a time-series for each species.
+
+```{r remov kati_kati, echo=F}
+spCExp2 <- subset(spCExp, spCExp$Time!="Kati_kati")
+```
+
+
+## STEP 8: Correct the catch for effort change and fisher number
+
+As mentioned above I correct the catch per species by the number of fisher and the change in fishing effort. 
+
+```{r correct catch, echo=F}
+spCExp2$Catch <- as.numeric(spCExp2$Catch)
+
+spCExp2$Catch_corrected <- (spCExp2$Catch/spCExp2$Effort_change)/spCExp2$Number_fisher
+```
+
+
+## STEP 9: Calculate the ratio between current and historical catch
+
+I calculate the difference between the catch from 2021 and the catch from the starting year for each species and for each participant. I do this before calculating the median as the unit for the catch varies from P to P. I have tried my best to communicate that I need one unit (either kg, number or batches) but only one interviewer has consistently used numbers.  
+
+```{r calculate ratio, echo=F}
+
+spCExp2L <- split(spCExp2, spCExp2$Time)
+
+spCExpFin <- spCExp2L$Sasa
+
+spCExpFin$Ratio <- spCExp2L$Sasa$Catch_corrected/spCExp2L$Aliopanza$Catch_corrected
+
+# we add back the aliopanza catch and the fishing years
+
+spCExpFin$Catch_aliopanza <- spCExp2L$Aliopanza$Catch_corrected
+spCExpFin$Years_fishing <- 2021-spCExp2L$Aliopanza$Time_year
+
+spCExpFin2 <- spCExpFin[c(1:11, 13, 14, 12)]
+
+```
+
+## STEP 10: Calculate the median for the ratio of each species
+
+Now that we have the change in catch for each species and P as a ratio, we calculate the median for each species. 
+I noted 7 Ps (from two differen interviewers) that supposedly reported much higher catches in 2021 than when they first started. That seems odd. For the moment I simply remove them and I have asked the interviewers to cross-check with their data sheets.  
+
+```{r ratio median, echo=F}
+spCExpFin2 <- spCExpFin2 %>% 
+  group_by(Species) %>% 
+  mutate(Ratio_median=median(Ratio, na.rm = T))
+
+
+# Let us check for which participant the catch was higher in Aliopanza:
+
+ind5 <- which(spCExpFin2$Ratio>1)
+
+# We remove them for the time being:
+
+spCExpFin3 <- spCExpFin2[-ind5,]
+
+```
+
+# Visualize the preliminary analysis
+
+In the following I will plot the C/Chistorical ratios and the median for each species and P over the Ps fishing experience (years).
+
+## Key species
+
+These species are modelled as monospecies groups in Ecopath
+
+```{r keyspec, echo=F, warning=F}
+
+keySpNam <- c("Siganus_sutor", "Leptoscarus_vagiensis", "Lethrinus_lentjan", 
+              "Lethrinus_borbonicus", "Lutjanus_fulviflamma", "Scarus_ghobban")
+keySp <- subset(spCExpFin3, spCExpFin3$Species %in% keySpNam)
+
+# medSp <- unique(keySp$Ratio_median) 
+
+keySp <- as.data.frame(keySp)
+
+ggplot(keySp)+
+  geom_point(aes(x=Years_fishing, y=Ratio))+
+  geom_line(data= keySp, aes(y=Ratio_median, 
+                             x=seq(0, 60, length.out=length(Ratio_median))))+
+  facet_grid(~Species)
+
+```
+
+The number of data points vary between 5 and 18. The question is if it is enough. We could add one more sampling day targeting Leptoscarus vaigiensis as it only has 5 data points. And as we have seen that they have sampled a lot from handline fisher but not enough dragnet fisher, we could specifically target dragnet fisher in the next round.
+
+We see no real pattern. The answeres also diverge quiet a bit. 
+
+## Invertebrates
+
+I have 4 fished invertebrate groups: Crabs&Lobsters, Squids, Octopus, and Snails
+
+```{r inverts, echo=F, warning=F, message=F}
+# Let us add the fishing years to the data set and plot the ratios over fishing
+# years
+invNam <- c("Crabs_Lobsters", "Octopus", "Snails", "Squids")
+inv <- subset(spCExpFin3, spCExpFin3$Species %in% invNam)
+
+# medSp <- unique(keySp$Ratio_median) 
+
+inv <- as.data.frame(inv)
+
+ggplot(inv)+
+  geom_point(aes(x=Years_fishing, y=Ratio))+
+  geom_line(data= inv, aes(y=Ratio_median, 
+                             x=seq(0, 60, length.out=length(Ratio_median))))+
+  facet_grid(~Species)
+
+```
+
+Octopus and Squids should be enough data points. The other groups not. 
+Again no real pattern and the range is high. 
+
+## Carnivore fish
+
+The species displayed below are the major contributors to the carnviorous fish functional group in Ecopath.
+
+```{r carnivore, echo=F, warning=F}
+
+# Let us add the fishing years to the data set and plot the ratios over fishing
+# years
+carniNam <- c("Lethrinus_harak","Lethrinus_variegatus", "Lethrinus_mahsena",
+              "Serranidae", "Plectorhinchus_gibbus", "Rhinobatidae", 
+              "Mullidae", "Anguilliformes", "Cheilinus_trilobatus")
+carni <- subset(spCExpFin3, spCExpFin3$Species %in% carniNam)
+
+# medSp <- unique(keySp$Ratio_median) 
+
+carni <- as.data.frame(carni)
+
+ggplot(carni)+
+  geom_point(aes(x=Years_fishing, y=Ratio))+
+  geom_line(aes(y=Ratio_median, 
+                x=seq(0, 60, length.out=length(Ratio_median))))+
+  facet_wrap(~Species)
+
+```
+
+Sample size of most species, except Lethrinus variegatus and Rhinobatidae, is ok.
+The groups with enough sample size contribute over 60 % to carnivorous fish. So I could set a v using this information.
+Serranidae is the only one that seems to be very consistent...
+I am wondering how I will combine this information about the C/Chistorical into one B/Bunfished. 
+
+## Herbivore fish 
+ 
+```{r herbivore, echo=F, warning=F}
+herbNam <- c("Acanthurus_spp", "Hipposcarus_harid", "Calatomus_carolinus")
+herb <- subset(spCExpFin3, spCExpFin3$Species %in% herbNam)
+
+# medSp <- unique(keySp$Ratio_median) 
+
+herb <- as.data.frame(herb)
+
+ggplot(herb)+
+  geom_point(aes(x=Years_fishing, y=Ratio))+
+  geom_line(aes(y=Ratio_median, 
+                x=seq(0, 60, length.out=length(Ratio_median))))+
+  facet_grid(~Species)
+
+```
+ 
+ Small sample size but I could use it. Except for one P the range is much narrower. 
+ 
+ 
+# Points for discussion
+ 
+ (1) Would like to discuss the sample size with you
+ (2) How to treat the different fishing years for each P?
+ (3) Because I calculate a ratio of C/Chistorical for each fisher, I do not worry about the units. 
+ (4) How to combined the information from the different species/group of each functional group?
+ (5) Should we sample again?
