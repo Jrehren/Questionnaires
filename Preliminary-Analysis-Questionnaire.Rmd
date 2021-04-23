@@ -261,7 +261,7 @@ spCExp2 <- subset(spCExp, spCExp$Time!="Kati_kati")
 ## STEP 8: Correct the catch for effort change and fisher number
 
 As mentioned above I correct the catch per species by the number of fisher and the change in fishing effort. 
-
+ 
 ```{r correct catch, echo=F}
 spCExp2$Catch <- as.numeric(spCExp2$Catch)
 
@@ -321,21 +321,67 @@ These species are modelled as monospecies groups in Ecopath
 
 ```{r keyspec, echo=F, warning=F}
 
-keySpNam <- c("Siganus_sutor", "Leptoscarus_vagiensis", "Lethrinus_lentjan", 
+keySpNam <- c("Siganus_sutor", "Leptoscarus_vaigiensis", "Lethrinus_lentjan", 
               "Lethrinus_borbonicus", "Lutjanus_fulviflamma", "Scarus_ghobban")
 keySp <- subset(spCExpFin3, spCExpFin3$Species %in% keySpNam)
 
 # medSp <- unique(keySp$Ratio_median) 
 
 keySp <- as.data.frame(keySp)
-
-ggplot(keySp)+
-  geom_point(aes(x=Years_fishing, y=Ratio))+
+names(keySp)
+ggplot(keySp, aes(x=Years_fishing, y=Ratio))+
+  geom_point()+
   geom_line(data= keySp, aes(y=Ratio_median, 
                              x=seq(0, 60, length.out=length(Ratio_median))))+
-  facet_grid(~Species)
+  geom_text(aes(label=Years_fishing))+
+  facet_wrap(~Species)
 
 ```
+
+Is it the same fisher that reports no changes?
+
+
+```{r keyspec2, echo=F, warning=F}
+
+keySpNam <- c("Siganus_sutor", "Leptoscarus_vaigiensis", "Lethrinus_lentjan", 
+              "Lethrinus_borbonicus", "Lutjanus_fulviflamma", "Scarus_ghobban")
+keySp <- subset(spCExpFin3, spCExpFin3$Species %in% keySpNam)
+
+# medSp <- unique(keySp$Ratio_median) 
+
+keySp <- as.data.frame(keySp)
+# names(keySp)
+ggplot(keySp, aes(x=Years_fishing, y=Ratio))+
+  geom_point()+
+  geom_line(data= keySp, aes(y=Ratio_median, 
+                             x=seq(0, 60, length.out=length(Ratio_median))))+
+  geom_text(aes(label=Id))+
+  facet_wrap(~Species)
+
+```
+
+With what type of gear does this fisher fish?
+
+
+```{r keyspec3, echo=F, warning=F}
+
+keySpNam <- c("Siganus_sutor", "Leptoscarus_vaigiensis", "Lethrinus_lentjan", 
+              "Lethrinus_borbonicus", "Lutjanus_fulviflamma", "Scarus_ghobban")
+keySp <- subset(spCExpFin3, spCExpFin3$Species %in% keySpNam)
+
+# medSp <- unique(keySp$Ratio_median) 
+
+keySp <- as.data.frame(keySp)
+# names(keySp)
+ggplot(keySp, aes(x=Years_fishing, y=Ratio))+
+  geom_point()+
+  geom_line(data= keySp, aes(y=Ratio_median, 
+                             x=seq(0, 60, length.out=length(Ratio_median))))+
+  geom_text(aes(label=Gear))+
+  facet_wrap(~Species)
+
+```
+
 
 The number of data points vary between 5 and 18. The question is if it is enough. We could add one more sampling day targeting Leptoscarus vaigiensis as it only has 5 data points. And as we have seen that they have sampled a lot from handline fisher but not enough dragnet fisher, we could specifically target dragnet fisher in the next round.
 
@@ -344,7 +390,7 @@ We see no real pattern. The answeres also diverge quiet a bit.
 ## Invertebrates
 
 I have 4 fished invertebrate groups: Crabs&Lobsters, Squids, Octopus, and Snails
-
+ 
 ```{r inverts, echo=F, warning=F, message=F}
 # Let us add the fishing years to the data set and plot the ratios over fishing
 # years
@@ -355,11 +401,14 @@ inv <- subset(spCExpFin3, spCExpFin3$Species %in% invNam)
 
 inv <- as.data.frame(inv)
 
-ggplot(inv)+
-  geom_point(aes(x=Years_fishing, y=Ratio))+
+ggplot(inv, aes(x=Years_fishing, y=Ratio))+
+  geom_point()+
   geom_line(data= inv, aes(y=Ratio_median, 
                              x=seq(0, 60, length.out=length(Ratio_median))))+
-  facet_grid(~Species)
+   geom_text(aes(label=Years_fishing), nudge_y = 0.1)+
+   geom_text(aes(label=Gear))+
+  facet_wrap(~Species)
+
 
 ```
 
@@ -369,7 +418,7 @@ Again no real pattern and the range is high.
 ## Carnivore fish
 
 The species displayed below are the major contributors to the carnviorous fish functional group in Ecopath.
-
+ 
 ```{r carnivore, echo=F, warning=F}
 
 # Let us add the fishing years to the data set and plot the ratios over fishing
@@ -396,7 +445,7 @@ The groups with enough sample size contribute over 60 % to carnivorous fish. So 
 Serranidae is the only one that seems to be very consistent...
 I am wondering how I will combine this information about the C/Chistorical into one B/Bunfished. 
 
-## Herbivore fish 
+## Herbivore fish  
  
 ```{r herbivore, echo=F, warning=F}
 herbNam <- c("Acanthurus_spp", "Hipposcarus_harid", "Calatomus_carolinus")
@@ -406,11 +455,13 @@ herb <- subset(spCExpFin3, spCExpFin3$Species %in% herbNam)
 
 herb <- as.data.frame(herb)
 
-ggplot(herb)+
-  geom_point(aes(x=Years_fishing, y=Ratio))+
+ggplot(herb, aes(x=Years_fishing, y=Ratio))+
+  geom_point()+
   geom_line(aes(y=Ratio_median, 
                 x=seq(0, 60, length.out=length(Ratio_median))))+
-  facet_grid(~Species)
+   geom_text(aes(label=Years_fishing), nudge_y = 0.1)+
+   geom_text(aes(label=Gear))+
+  facet_wrap(~Species)
 
 ```
  
